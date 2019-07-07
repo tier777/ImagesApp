@@ -21,6 +21,9 @@
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Start typing" translatesAutoresizingMaskIntoConstraints="NO" id="m8z-Ij-VOD">
                                 <rect key="frame" x="8" y="0.0" width="398" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="gfp-ND-9yn"/>
+                                </constraints>
                                 <color key="tintColor" name="yellowTint"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </searchBar>
@@ -64,7 +67,7 @@
                             <constraint firstItem="m8z-Ij-VOD" firstAttribute="leading" secondItem="Qcx-4b-ihv" secondAttribute="leading" constant="8" id="2bW-N4-YZB"/>
                             <constraint firstItem="Qcx-4b-ihv" firstAttribute="trailing" secondItem="Vge-gg-k9y" secondAttribute="trailing" id="7Nn-C8-V0P"/>
                             <constraint firstItem="Qcx-4b-ihv" firstAttribute="bottom" secondItem="0hU-D5-fcR" secondAttribute="bottom" id="O63-HJ-KnD"/>
-                            <constraint firstItem="Vge-gg-k9y" firstAttribute="top" secondItem="m8z-Ij-VOD" secondAttribute="bottom" id="V8E-Qr-cWT"/>
+                            <constraint firstItem="Vge-gg-k9y" firstAttribute="top" secondItem="m8z-Ij-VOD" secondAttribute="bottom" priority="999" id="V8E-Qr-cWT"/>
                             <constraint firstItem="Qcx-4b-ihv" firstAttribute="trailing" secondItem="0hU-D5-fcR" secondAttribute="trailing" constant="16" id="a0H-tV-wK0"/>
                             <constraint firstAttribute="bottom" secondItem="Vge-gg-k9y" secondAttribute="bottom" id="mM4-yk-eHK"/>
                             <constraint firstItem="m8z-Ij-VOD" firstAttribute="top" secondItem="Qcx-4b-ihv" secondAttribute="top" id="r2u-Fp-5aS"/>
@@ -78,6 +81,9 @@
                             <color key="tintColor" name="yellowTint"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="Vge-gg-k9y" id="2ZA-9Y-snW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LA-O6-0gr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

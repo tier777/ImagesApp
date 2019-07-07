@@ -17,6 +17,7 @@
 		8A79CF4522D20C7E00B06337 /* ImagesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A79CF4422D20C7E00B06337 /* ImagesAPI.swift */; };
 		8A79CF4722D20C8A00B06337 /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A79CF4622D20C8A00B06337 /* ImagesService.swift */; };
 		8A79CF4922D20C9300B06337 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A79CF4822D20C9300B06337 /* NetworkManager.swift */; };
+		8A79CF4B22D2257600B06337 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A79CF4A22D2257600B06337 /* NetworkResponse.swift */; };
 		8AFACDEE22D0DE2000F2177B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFACDED22D0DE2000F2177B /* AppDelegate.swift */; };
 		8AFACDF622D0DE2000F2177B /* ImagesTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8AFACDF422D0DE2000F2177B /* ImagesTest.xcdatamodeld */; };
 		8AFACDF822D0DE2100F2177B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AFACDF722D0DE2100F2177B /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		8A79CF4422D20C7E00B06337 /* ImagesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesAPI.swift; sourceTree = "<group>"; };
 		8A79CF4622D20C8A00B06337 /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
 		8A79CF4822D20C9300B06337 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8A79CF4A22D2257600B06337 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		8AFACDEA22D0DE2000F2177B /* ImagesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AFACDED22D0DE2000F2177B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AFACDF522D0DE2000F2177B /* ImagesTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImagesTest.xcdatamodel; sourceTree = "<group>"; };
@@ -70,8 +72,8 @@
 		8A1DC98D22D18A7500AF4159 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				8A1DC98F22D18A8D00AF4159 /* ImagesSearch */,
 				8A1DC98E22D18A8300AF4159 /* ImagesList */,
+				8A1DC98F22D18A8D00AF4159 /* ImagesSearch */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -79,8 +81,8 @@
 		8A1DC98E22D18A8300AF4159 /* ImagesList */ = {
 			isa = PBXGroup;
 			children = (
-				8A1DC99522D18AB700AF4159 /* View */,
-				8A1DC99422D18AB700AF4159 /* ViewModel */,
+				8A1DC99022D18A9600AF4159 /* View */,
+				8A1DC99122D18A9A00AF4159 /* ViewModel */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -88,8 +90,8 @@
 		8A1DC98F22D18A8D00AF4159 /* ImagesSearch */ = {
 			isa = PBXGroup;
 			children = (
-				8A1DC99022D18A9600AF4159 /* View */,
-				8A1DC99122D18A9A00AF4159 /* ViewModel */,
+				8A1DC99522D18AB700AF4159 /* View */,
+				8A1DC99422D18AB700AF4159 /* ViewModel */,
 			);
 			path = ImagesSearch;
 			sourceTree = "<group>";
@@ -97,10 +99,11 @@
 		8A1DC99022D18A9600AF4159 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8A1DC98222D1754E00AF4159 /* ImagesListViewController.swift */,
 				8A1DC98422D1758400AF4159 /* ImagesList.storyboard */,
+				8A1DC98222D1754E00AF4159 /* ImagesListViewController.swift */,
 			);
-			path = View;
+			name = View;
+			path = ../ImagesSearch/View;
 			sourceTree = "<group>";
 		};
 		8A1DC99122D18A9A00AF4159 /* ViewModel */ = {
@@ -108,7 +111,8 @@
 			children = (
 				8A1DC99922D18C0600AF4159 /* ImagesListViewModel.swift */,
 			);
-			path = ViewModel;
+			name = ViewModel;
+			path = ../ImagesSearch/ViewModel;
 			sourceTree = "<group>";
 		};
 		8A1DC99422D18AB700AF4159 /* ViewModel */ = {
@@ -116,7 +120,8 @@
 			children = (
 				8A1DC99B22D18C1B00AF4159 /* ImagesSearchViewModel.swift */,
 			);
-			path = ViewModel;
+			name = ViewModel;
+			path = ../ImagesList/ViewModel;
 			sourceTree = "<group>";
 		};
 		8A1DC99522D18AB700AF4159 /* View */ = {
@@ -125,7 +130,8 @@
 				8A1DC98B22D182FB00AF4159 /* ImagesSearch.storyboard */,
 				8A1DC98922D182EE00AF4159 /* ImagesSearchViewController.swift */,
 			);
-			path = View;
+			name = View;
+			path = ../ImagesList/View;
 			sourceTree = "<group>";
 		};
 		8A1DC99622D18BAE00AF4159 /* Common */ = {
@@ -149,11 +155,28 @@
 		8A1DC99822D18BC800AF4159 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8A79CF4422D20C7E00B06337 /* ImagesAPI.swift */,
-				8A79CF4622D20C8A00B06337 /* ImagesService.swift */,
-				8A79CF4822D20C9300B06337 /* NetworkManager.swift */,
+				8A79CF4C22D260DB00B06337 /* Networking */,
+				8A79CF4D22D260EF00B06337 /* ImageService */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8A79CF4C22D260DB00B06337 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8A79CF4A22D2257600B06337 /* NetworkResponse.swift */,
+				8A79CF4822D20C9300B06337 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8A79CF4D22D260EF00B06337 /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				8A79CF4422D20C7E00B06337 /* ImagesAPI.swift */,
+				8A79CF4622D20C8A00B06337 /* ImagesService.swift */,
+			);
+			path = ImageService;
 			sourceTree = "<group>";
 		};
 		8AFACDE122D0DE1F00F2177B = {
@@ -327,6 +350,7 @@
 				8AFACDF622D0DE2000F2177B /* ImagesTest.xcdatamodeld in Sources */,
 				8A1DC99A22D18C0600AF4159 /* ImagesListViewModel.swift in Sources */,
 				8A1C4E0422D0E2CD008962C0 /* CoreDataManager.swift in Sources */,
+				8A79CF4B22D2257600B06337 /* NetworkResponse.swift in Sources */,
 				8A1DC98A22D182EE00AF4159 /* ImagesSearchViewController.swift in Sources */,
 				8AFACDEE22D0DE2000F2177B /* AppDelegate.swift in Sources */,
 			);
