@@ -12,10 +12,13 @@ import RxCocoa
 protocol ImagesSearchViewModelProtocol: AnyObject {
     
     var images: BehaviorRelay<[SearchResult]> { get }
+    var currentResult: BehaviorRelay<SearchResult?> { get }
+    var resultForSave: BehaviorRelay<SearchResult?> { get }
     var currentImage: BehaviorRelay<UIImage?> { get }
     
     func search(q: String)
     func shuffle()
+    func saveCurrent()
 }
 
 class ImagesSearchViewModel {
@@ -26,7 +29,8 @@ class ImagesSearchViewModel {
     private let imagesService = ImagesService.shared
     
     let images: BehaviorRelay<[SearchResult]> = BehaviorRelay(value: [])
-    private let currentResult: BehaviorRelay<SearchResult?> = BehaviorRelay(value: nil)
+    let currentResult: BehaviorRelay<SearchResult?> = BehaviorRelay(value: nil)
+    let resultForSave: BehaviorRelay<SearchResult?> = BehaviorRelay(value: nil)
     let currentImage: BehaviorRelay<UIImage?> = BehaviorRelay(value: nil)
     
     init() {
@@ -84,5 +88,10 @@ extension ImagesSearchViewModel: ImagesSearchViewModelProtocol {
         images.removeAll(where: { $0.imageUrl == currentResult.imageUrl })
         
         self.currentResult.accept(images.randomElement())
+    }
+    
+    func saveCurrent() {
+        
+        resultForSave.accept(currentResult.value)
     }
 }

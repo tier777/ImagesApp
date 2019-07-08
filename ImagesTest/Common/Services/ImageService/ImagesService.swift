@@ -40,7 +40,6 @@ class ImagesService {
             
             guard let srcUrl = node["src"] else { return nil }
             
-            //let image = ServiceImage(request: request, imageUrl: srcUrl.replacingOccurrences(of: "//", with: "https://"))
             let imageUrl = srcUrl.replacingOccurrences(of: "//", with: "https://")
             let searchResult = coreDataManager.createTempSearchResult(request: request, imageUrl: imageUrl, imageData: cache.object(forKey: NSString(string: imageUrl))?.pngData())
             

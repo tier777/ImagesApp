@@ -21,7 +21,7 @@ class ImagesSearchViewController: UIViewController {
     @IBOutlet private weak var addButton: UIButton!
     @IBOutlet private weak var shuffleButton: UIButton!
     
-    private let viewModel: ImagesSearchViewModelProtocol = ImagesSearchViewModel()
+    let viewModel: ImagesSearchViewModelProtocol = ImagesSearchViewModel()
     
     private lazy var keyboardOnScreenHeight = Observable.from([
         NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
@@ -46,6 +46,12 @@ extension ImagesSearchViewController {
         super.viewDidAppear(animated)
         
         searchBar.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        view.endEditing(false)
     }
 }
 
@@ -110,10 +116,30 @@ extension ImagesSearchViewController {
                 
             }).disposed(by: disposeBag)
         
-        shuffleButton.rx.tap.bind(onNext: {
-            [weak viewModel] in
+        closeButton.rx.tap.bind(onNext: {
+            [weak self] in
             
-            viewModel?.shuffle()
+            self?.dismiss(animated: true)
+            
+        }).disposed(by: disposeBag)
+        
+        shuffleButton.rx.tap.bind(onNext: {
+            [weak self] in
+            
+            self?.viewModel.shuffle()
+            
+        }).disposed(by: disposeBag)
+        
+        addButton.rx.tap.bind(onNext: {
+            [weak self] in
+            
+            self?.viewModel.saveCurrent()
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+                
+                let angle: CGFloat = 90 * (.pi / 180.0)
+                self?.addButton.transform = self?.addButton.transform.rotated(by: angle) ?? CGAffineTransform(rotationAngle: angle)
+            })
             
         }).disposed(by: disposeBag)
     }

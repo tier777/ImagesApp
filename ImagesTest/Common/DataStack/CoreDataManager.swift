@@ -17,6 +17,7 @@ protocol CoreDataManagerProtocol {
     
     func createStoredSearchResult(from searchResult: SearchResult) -> SearchResult
     func createTempSearchResult(request: String, imageUrl: String, imageData: Data?) -> SearchResult
+    func deleteStored(searchResult: SearchResult)
     func getSearchResults() -> [SearchResult]
 }
 
@@ -46,11 +47,9 @@ class CoreDataManager {
         let container = NSPersistentContainer(name: "ImagesTest")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             
-            print("store done!")
-            
             if let error = error as NSError? {
                 
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                print("PersistentContainer error: \(error), \(error.userInfo)")
             }
         })
         return container
@@ -59,16 +58,15 @@ class CoreDataManager {
     private func save(context: NSManagedObjectContext) {
         
         if context.hasChanges {
+            
             do {
                 
                 try context.save()
                 
-                print("\(context.name ?? "") context saved.")
-                
             } catch {
                 
                 let nserror = error as NSError
-                fatalError("Saving context \(context.name ?? "") error: \(nserror), \(nserror.userInfo)")
+                print("Saving context \(context.name ?? "") error: \(nserror), \(nserror.userInfo)")
             }
         }
     }
@@ -91,6 +89,7 @@ extension CoreDataManager: CoreDataManagerProtocol {
         let entity = SearchResult(context: backgroundContext)
         entity.createdAt = Date()
         entity.request = searchResult.request
+        entity.imageUrl = searchResult.imageUrl
         entity.imageData = searchResult.imageData
         
         return entity
@@ -107,13 +106,16 @@ extension CoreDataManager: CoreDataManagerProtocol {
         return entity
     }
     
+    func deleteStored(searchResult: SearchResult) {
+        
+        backgroundContext.delete(searchResult)
+    }
+    
     func getSearchResults() -> [SearchResult] {
         
         let fetchRequest = NSFetchRequest<SearchResult>(entityName: "SearchResult")
         
         if let results = try? backgroundContext.fetch(fetchRequest) {
-            
-            print("res count: \(results.count)")
             
             return results
         }

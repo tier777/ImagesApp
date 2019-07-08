@@ -33,40 +33,43 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="320" id="ePr-Qt-kCQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImagesListCell" rowHeight="320" id="ePr-Qt-kCQ" customClass="ImagesListCell" customModule="ImagesTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44" width="414" height="320"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ePr-Qt-kCQ" id="BA9-qb-aB6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="320"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wKT-1X-JQ1">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wKT-1X-JQ1">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="256"/>
-                                                    <color key="backgroundColor" name="white"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="256" id="ylm-sl-Y0v"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJN-ax-Fud">
-                                                    <rect key="frame" x="16" y="272" width="382" height="31.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="16" y="268" width="382" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" name="semiWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="BJN-ax-Fud" secondAttribute="bottom" priority="999" constant="16" id="RFA-5H-E38"/>
+                                                <constraint firstAttribute="bottom" secondItem="BJN-ax-Fud" secondAttribute="bottom" priority="999" constant="24" id="RFA-5H-E38"/>
                                                 <constraint firstItem="wKT-1X-JQ1" firstAttribute="height" secondItem="BA9-qb-aB6" secondAttribute="width" priority="999" id="TPT-60-yJ1"/>
                                                 <constraint firstAttribute="trailing" secondItem="wKT-1X-JQ1" secondAttribute="trailing" id="Ud1-ks-Ogg"/>
                                                 <constraint firstItem="wKT-1X-JQ1" firstAttribute="leading" secondItem="BA9-qb-aB6" secondAttribute="leading" id="XSX-oX-v16"/>
                                                 <constraint firstItem="wKT-1X-JQ1" firstAttribute="top" secondItem="BA9-qb-aB6" secondAttribute="top" id="m8Q-35-Ppq"/>
                                                 <constraint firstItem="BJN-ax-Fud" firstAttribute="leading" secondItem="BA9-qb-aB6" secondAttribute="leading" constant="16" id="noQ-cM-BWE"/>
-                                                <constraint firstItem="BJN-ax-Fud" firstAttribute="top" secondItem="wKT-1X-JQ1" secondAttribute="bottom" constant="16" id="o9v-jX-cbr"/>
+                                                <constraint firstItem="BJN-ax-Fud" firstAttribute="top" secondItem="wKT-1X-JQ1" secondAttribute="bottom" constant="12" id="o9v-jX-cbr"/>
                                                 <constraint firstAttribute="trailing" secondItem="BJN-ax-Fud" secondAttribute="trailing" constant="16" id="w7t-sg-wFb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="searchImageView" destination="wKT-1X-JQ1" id="gNi-4E-3nt"/>
+                                            <outlet property="urlLabel" destination="BJN-ax-Fud" id="67c-CM-72g"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -88,6 +91,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="8Wr-Ht-SSD" id="K8Z-Cl-7br"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWE-rD-YGX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,9 +139,6 @@
         </namedColor>
         <namedColor name="semiWhite">
             <color red="1" green="1" blue="1" alpha="0.54000002145767212" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="white">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="yellowTint">
             <color red="1" green="0.86699998378753662" blue="0.17599999904632568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
