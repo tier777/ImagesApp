@@ -7,7 +7,6 @@
 //
 
 import CoreData
-import class UIKit.UIImage
 
 protocol CoreDataManagerProtocol {
     
@@ -16,7 +15,8 @@ protocol CoreDataManagerProtocol {
     func saveMainContext()
     func saveBackgroundContext()
     
-    func createSearchResult(request: String, image: UIImage) -> SearchResult
+    func createStoredSearchResult(from searchResult: SearchResult) -> SearchResult
+    func createTempSearchResult(request: String, imageUrl: String, imageData: Data?) -> SearchResult
     func getSearchResults() -> [SearchResult]
 }
 
@@ -32,6 +32,11 @@ class CoreDataManager {
     }
     
     private lazy var backgroundContext: NSManagedObjectContext = {
+        
+        return persistentContainer.newBackgroundContext()
+    }()
+    
+    private lazy var tempContext: NSManagedObjectContext = {
         
         return persistentContainer.newBackgroundContext()
     }()
@@ -81,12 +86,23 @@ extension CoreDataManager: CoreDataManagerProtocol {
         save(context: backgroundContext)
     }
     
-    func createSearchResult(request: String, image: UIImage) -> SearchResult {
+    func createStoredSearchResult(from searchResult: SearchResult) -> SearchResult {
         
         let entity = SearchResult(context: backgroundContext)
         entity.createdAt = Date()
+        entity.request = searchResult.request
+        entity.imageData = searchResult.imageData
+        
+        return entity
+    }
+    
+    func createTempSearchResult(request: String, imageUrl: String, imageData: Data?) -> SearchResult {
+        
+        let entity = SearchResult(context: tempContext)
+        entity.createdAt = Date()
         entity.request = request
-        entity.image = image.pngData()
+        entity.imageUrl = imageUrl
+        entity.imageData = imageData
         
         return entity
     }
