@@ -1,4 +1,5 @@
 PODS:
+  - Kanna (5.0.0)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -7,20 +8,23 @@ PODS:
   - RxSwift (5.0.0)
 
 DEPENDENCIES:
+  - Kanna (~> 5.0.0)
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Kanna
     - RxCocoa
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
+  Kanna: a32875df62975f8f4b871e933b4ea1a5c3b8be0f
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 98069e8337decb47fb65a5061a8ef129087b5f8b
+PODFILE CHECKSUM: eb8d878648e5fcfdd8bc1189e904beab2a3fd70c
 
 COCOAPODS: 1.7.3

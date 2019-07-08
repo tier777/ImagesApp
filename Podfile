@@ -7,4 +7,6 @@ target 'ImagesTest' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   
+  pod 'Kanna', '~> 5.0.0'
+  
 end

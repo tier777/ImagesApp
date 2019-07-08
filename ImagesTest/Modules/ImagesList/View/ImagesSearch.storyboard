@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dWm-Wg-kEK">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="aCA-Ov-u3p">
+            <objects>
+                <viewController storyboardIdentifier="ImagesSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fxI-GJ-sST" customClass="ImagesSearchViewController" customModule="ImagesTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z4T-sw-mI8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Start typing" translatesAutoresizingMaskIntoConstraints="NO" id="m8z-Ij-VOD">
+                                <rect key="frame" x="8" y="0.0" width="398" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="gfp-ND-9yn"/>
+                                </constraints>
+                                <color key="tintColor" name="yellowTint"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vge-gg-k9y">
+                                <rect key="frame" x="0.0" y="56" width="414" height="700"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hU-D5-fcR">
+                                <rect key="frame" x="294" y="666" width="104" height="56"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="3RC-Hk-Lbp">
+                                        <rect key="frame" x="16" y="16" width="72" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b50-Ok-1xA">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                <color key="tintColor" name="yellowTint"/>
+                                                <state key="normal" image="iconAdd">
+                                                    <color key="titleColor" name="yellowTint"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dj-XD-A7a">
+                                                <rect key="frame" x="48" y="1" width="24" height="22"/>
+                                                <color key="tintColor" name="yellowTint"/>
+                                                <state key="normal" image="iconReload">
+                                                    <color key="titleColor" name="yellowTint"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="black"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3RC-Hk-Lbp" secondAttribute="trailing" constant="16" id="KXs-c4-m2H"/>
+                                    <constraint firstAttribute="bottom" secondItem="3RC-Hk-Lbp" secondAttribute="bottom" constant="16" id="bWJ-F8-aCZ"/>
+                                    <constraint firstItem="3RC-Hk-Lbp" firstAttribute="leading" secondItem="0hU-D5-fcR" secondAttribute="leading" constant="16" id="usM-zB-aIV"/>
+                                    <constraint firstItem="3RC-Hk-Lbp" firstAttribute="top" secondItem="0hU-D5-fcR" secondAttribute="top" constant="16" id="zWR-kq-src"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="black"/>
+                        <constraints>
+                            <constraint firstItem="m8z-Ij-VOD" firstAttribute="leading" secondItem="Qcx-4b-ihv" secondAttribute="leading" constant="8" id="2bW-N4-YZB"/>
+                            <constraint firstItem="Qcx-4b-ihv" firstAttribute="trailing" secondItem="Vge-gg-k9y" secondAttribute="trailing" id="7Nn-C8-V0P"/>
+                            <constraint firstItem="Qcx-4b-ihv" firstAttribute="bottom" secondItem="0hU-D5-fcR" secondAttribute="bottom" id="O63-HJ-KnD"/>
+                            <constraint firstItem="Vge-gg-k9y" firstAttribute="top" secondItem="m8z-Ij-VOD" secondAttribute="bottom" priority="999" id="V8E-Qr-cWT"/>
+                            <constraint firstItem="Qcx-4b-ihv" firstAttribute="trailing" secondItem="0hU-D5-fcR" secondAttribute="trailing" constant="16" id="a0H-tV-wK0"/>
+                            <constraint firstAttribute="bottom" secondItem="Vge-gg-k9y" secondAttribute="bottom" id="mM4-yk-eHK"/>
+                            <constraint firstItem="m8z-Ij-VOD" firstAttribute="top" secondItem="Qcx-4b-ihv" secondAttribute="top" id="r2u-Fp-5aS"/>
+                            <constraint firstItem="Vge-gg-k9y" firstAttribute="leading" secondItem="Qcx-4b-ihv" secondAttribute="leading" id="vyl-8c-1dT"/>
+                            <constraint firstItem="Qcx-4b-ihv" firstAttribute="trailing" secondItem="m8z-Ij-VOD" secondAttribute="trailing" constant="8" id="zCU-95-Ywb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qcx-4b-ihv"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="r1e-hM-Lpo">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ggf-1c-TSa">
+                            <color key="tintColor" name="yellowTint"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="b50-Ok-1xA" id="dJM-aI-bew"/>
+                        <outlet property="buttonsContainer" destination="0hU-D5-fcR" id="xtP-0S-sQ4"/>
+                        <outlet property="buttonsContainerBottomConstraint" destination="O63-HJ-KnD" id="F5d-Vk-xzy"/>
+                        <outlet property="closeButton" destination="Ggf-1c-TSa" id="rRX-xv-mPd"/>
+                        <outlet property="imageView" destination="Vge-gg-k9y" id="JLP-Th-6iq"/>
+                        <outlet property="searchBar" destination="m8z-Ij-VOD" id="trz-t0-M7e"/>
+                        <outlet property="shuffleButton" destination="1dj-XD-A7a" id="Bck-Ra-H8M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4LA-O6-0gr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868.11594202898561" y="8.7053571428571423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uch-nU-8Ii">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dWm-Wg-kEK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="dzB-qB-W1e">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="black"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.86699998379999998" blue="0.17599999899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="0.86699998379999998" blue="0.17599999899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fxI-GJ-sST" kind="relationship" relationship="rootViewController" id="Re1-Fh-cQt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B0j-1j-Ldo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42.028985507246382" y="8.7053571428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iconAdd" width="24" height="24"/>
+        <image name="iconReload" width="24" height="22"/>
+        <namedColor name="black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellowTint">
+            <color red="1" green="0.86699998378753662" blue="0.17599999904632568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
